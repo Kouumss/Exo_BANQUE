@@ -11,7 +11,7 @@ namespace Seb_POO_Exo2.Models
     {
         private decimal _ligneDeCredit;
         public string Numero { get; set; }
-        public decimal Solde { get;  set; }
+        public decimal Solde { get; set; }
         public decimal LigneDeCredit
         {
             get
@@ -27,7 +27,7 @@ namespace Seb_POO_Exo2.Models
         }
         public Personne? Titulaire { get; set; }
 
-        
+
         public void Retrait(decimal montant)
         {
             if (montant < 0)
@@ -58,6 +58,11 @@ namespace Seb_POO_Exo2.Models
             Console.WriteLine($" Solde : {Solde}");
             Console.WriteLine($" Limite : {LigneDeCredit}");
             Console.WriteLine();
+        }
+
+        public static decimal operator + (decimal solde, Courant courant)
+        {
+          return solde + courant.Solde < 0 ? 0 : courant.Solde;
         }
     }
 

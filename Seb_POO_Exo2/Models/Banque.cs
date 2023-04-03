@@ -45,11 +45,25 @@ namespace Seb_POO_Exo2.Models
             Console.WriteLine("Compte ajouté !");
         }
 
-        public void Supprimer(string nom)
+        public void Supprimer(string numero)
         {   
-            Compte.Remove(nom);
+            Compte.Remove(numero);
             Console.WriteLine("Compte supprimé !");
             Console.WriteLine();
+        }
+
+        public decimal AvoirDesCompte(Personne p)
+        {
+            decimal avoir = 0;
+
+            foreach(KeyValuePair<string, Courant> kvp in Compte)
+            {
+                if(kvp.Value.Titulaire == p)
+                {
+                    avoir += kvp.Value;
+                }
+            }
+            return avoir;
         }
 
       

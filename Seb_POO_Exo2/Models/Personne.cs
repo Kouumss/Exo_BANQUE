@@ -15,7 +15,7 @@ namespace Seb_POO_Exo2.Models
         {
 
         }
-        
+
 
         public void Afficher()
         {
@@ -23,6 +23,15 @@ namespace Seb_POO_Exo2.Models
             Console.WriteLine($"Prenom : {Prenom}");
             Console.WriteLine($"Date de naissance : {DateNaiss}");
             Console.WriteLine();
+        }
+
+        public static bool operator ==(Personne p1, Personne p2)
+        {
+            return p1.Nom == p2.Nom && p1.Prenom == p2.Prenom;
+        }
+        public static bool operator !=(Personne p1, Personne p2)
+        {
+            return !(p1 == p2);
         }
     }
 }
