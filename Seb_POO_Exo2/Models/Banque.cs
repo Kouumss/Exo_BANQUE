@@ -18,7 +18,7 @@ namespace Seb_POO_Exo2.Models
         {
             get
             {
-                return _Compte ?? new Dictionary<string, Courant>();
+                return _Compte = _Compte ?? new Dictionary<string, Courant>();
             }
         }
 
@@ -29,7 +29,7 @@ namespace Seb_POO_Exo2.Models
             get
             {
                 Compte.TryGetValue(index, out Courant c);
-                _Compte.Add(index,c);
+                Compte.Add(index,c);
                 Console.WriteLine(c);
                 return c;
             }
@@ -40,22 +40,19 @@ namespace Seb_POO_Exo2.Models
         }
 
         public void Ajouter(Courant compte)
-        {   
+        {
             Compte.Add(compte.Numero, compte );
             Console.WriteLine("Compte ajouté !");
         }
 
         public void Supprimer(string nom)
-        {
+        {   
             Compte.Remove(nom);
             Console.WriteLine("Compte supprimé !");
             Console.WriteLine();
         }
 
-        public void Afficher()
-        {
-
-        }
+      
        
     }
 }
